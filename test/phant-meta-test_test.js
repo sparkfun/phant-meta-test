@@ -1,6 +1,6 @@
 'use strict';
 
-var phantStorage = require('../lib/phant-storage-test.js');
+var phantStorage = require('../lib/phant-meta-test.js');
 
 exports.phantStorage= {
   setUp: function(done) {

@@ -1,12 +1,12 @@
-# phant-storage-test [![Build Status](https://secure.travis-ci.org/sparkfun/phant-storage-test.png?branch=master)](http://travis-ci.org/sparkfun/phant-storage-test)
+# phant-meta-test [![Build Status](https://secure.travis-ci.org/sparkfun/phant-meta-test.png?branch=master)](http://travis-ci.org/sparkfun/phant-meta-test)
 
-test data for phant metadata and streams
+test metadata for phant development
 
 ## Getting Started
-Install the module with: `npm install phant-storage-test`
+Install the module with: `npm install phant-meta-test`
 
 ```javascript
-var phant-storage-test = require('phant-storage-test');
+var phant-meta-test = require('phant-meta-test');
 ```
 
 ## Documentation
