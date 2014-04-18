@@ -1,6 +1,6 @@
 {
   "name": "phant-meta-test",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/phant-meta-test.js",
   "description": "test metadata for phant development",
   "homepage": "https://github.com/sparkfun/phant-meta-test",
