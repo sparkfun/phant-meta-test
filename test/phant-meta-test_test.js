@@ -16,8 +16,14 @@ exports.phantMeta = {
     };
 
     meta.create(data, function(err, stream) {
+
       this.stream = stream;
-      done();
+
+      // create another
+      meta.create(data, function(err, stream) {
+        done();
+      });
+
     }.bind(this));
 
   },
@@ -41,7 +47,7 @@ exports.phantMeta = {
     test.expect(1);
 
     meta.get(this.stream.id, function(err, stream) {
-      test.equal(this.stream, stream, 'should return the stream');
+      test.ok(this.stream.id, stream.id, 'should return the stream');
       test.done();
     }.bind(this));
 
@@ -54,8 +60,12 @@ exports.phantMeta = {
     var old = this.stream.last_push;
 
     meta.touch(this.stream.id, function(err, status) {
-      test.ok(old < this.stream.last_push, 'should set last_push to now');
-      test.done();
+
+      meta.get(this.stream.id, function(err, stream) {
+        test.ok(old < stream.last_push, 'should set last_push to now');
+        test.done();
+      }.bind(this));
+
     }.bind(this));
 
   },
@@ -67,8 +77,12 @@ exports.phantMeta = {
     test.equal(this.stream.flagged, false, 'should not be flagged at creation');
 
     meta.flag(this.stream.id, function(err, status) {
-      test.ok(this.stream.flagged, 'should now be flagged');
-      test.done();
+
+      meta.get(this.stream.id, function(err, stream) {
+        test.ok(stream.flagged, 'should now be flagged');
+        test.done();
+      }.bind(this));
+
     }.bind(this));
 
   },
@@ -102,7 +116,7 @@ exports.phantMeta = {
 
       meta.get(this.stream.id, function(err, stream) {
 
-        test.equal(stream, false, 'should not return a stream');
+        test.ok(!stream, 'should not return a stream');
         test.done();
 
       });
@@ -112,3 +126,4 @@ exports.phantMeta = {
   }
 
 };
+
