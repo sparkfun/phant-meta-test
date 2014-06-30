@@ -30,7 +30,7 @@ exports.phantMeta = {
 
   tearDown: function(done) {
 
-    meta.remove(this.stream.id, function(err, status) {
+    meta.delete(this.stream.id, function(err, status) {
       done();
     }.bind(this));
 
@@ -59,27 +59,10 @@ exports.phantMeta = {
 
     var old = this.stream.last_push;
 
-    meta.touch(this.stream.id, function(err, status) {
+    meta.touch(this.stream.id, function(err) {
 
       meta.get(this.stream.id, function(err, stream) {
         test.ok(old < stream.last_push, 'should set last_push to now');
-        test.done();
-      }.bind(this));
-
-    }.bind(this));
-
-  },
-
-  'flag': function(test) {
-
-    test.expect(2);
-
-    test.equal(this.stream.flagged, false, 'should not be flagged at creation');
-
-    meta.flag(this.stream.id, function(err, status) {
-
-      meta.get(this.stream.id, function(err, stream) {
-        test.ok(stream.flagged, 'should now be flagged');
         test.done();
       }.bind(this));
 
@@ -106,13 +89,13 @@ exports.phantMeta = {
 
   },
 
-  'remove': function(test) {
+  'delete': function(test) {
 
     test.expect(2);
 
-    meta.remove(this.stream.id, function(err, status) {
+    meta.delete(this.stream.id, function(err) {
 
-      test.ok(status, 'should be ok');
+      test.ok(!err, 'should not err');
 
       meta.get(this.stream.id, function(err, stream) {
 
