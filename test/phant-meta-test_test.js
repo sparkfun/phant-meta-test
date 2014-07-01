@@ -18,11 +18,7 @@ exports.phantMeta = {
     meta.create(data, function(err, stream) {
 
       this.stream = stream;
-
-      // create another
-      meta.create(data, function(err, stream) {
-        done();
-      });
+      done();
 
     }.bind(this));
 
@@ -86,6 +82,20 @@ exports.phantMeta = {
       }, null, 0, limit - 1);
 
     });
+
+  },
+
+  'each': function(test) {
+
+    test.expect(2);
+
+    meta.each(function(err, stream) {
+
+      test.ok(!err, 'should not err');
+      test.equal(stream.title, 'unit test', 'should return correct stream');
+      test.done();
+
+    }, { title: 'unit test' });
 
   },
 
