@@ -83,7 +83,7 @@ exports.phantMeta = {
       meta.list(function(err, streams) {
         test.equal(streams.length, limit -1, 'should limit the list');
         test.done();
-      }, 0, limit - 1);
+      }, null, 0, limit - 1);
 
     });
 
