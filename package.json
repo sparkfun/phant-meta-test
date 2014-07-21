@@ -14,13 +14,12 @@
     "type": "git",
     "url": "git://github.com/sparkfun/phant-meta-test"
   },
-  "licenses": [
-    {
-      "type": "GPL v3"
-    }
-  ],
   "dependencies": {
     "lodash": "^2.4.1"
+  },
+  "license": "GPL-3.0",
+  "engines": {
+    "node": "^0.10.29"
   },
   "devDependencies": {
     "grunt": "^0.4.4",
@@ -33,5 +32,9 @@
   },
   "scripts": {
     "test": "grunt"
+  },
+  "phantConfig": {
+    "name": "Memory",
+    "options": []
   }
 }
