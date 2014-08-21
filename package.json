@@ -19,7 +19,7 @@
   },
   "license": "GPL-3.0",
   "engines": {
-    "node": "^0.10.29"
+    "node": "^0.10.30"
   },
   "devDependencies": {
     "grunt": "^0.4.4",
