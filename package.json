@@ -15,7 +15,8 @@
     "url": "git://github.com/sparkfun/phant-meta-test"
   },
   "dependencies": {
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "sift": "0.0.18"
   },
   "license": "GPL-3.0",
   "engines": {
